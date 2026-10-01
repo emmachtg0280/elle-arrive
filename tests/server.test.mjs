@@ -1,0 +1,10 @@
+import { test, before, after } from 'node:test';
+import assert from 'node:assert/strict';
+import { server } from '../scripts/server.mjs';
+let origin;
+before(async()=>{await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));origin=`http://127.0.0.1:${server.address().port}`;});
+after(()=>new Promise(resolve=>server.close(resolve)));
+test('serves the hero and a closed native dialog',async()=>{const r=await fetch(origin);assert.equal(r.status,200);const s=await r.text();assert.match(s,/<html lang="fr">/);assert.match(s,/<dialog id="explorer" aria-labelledby=/);assert.doesNotMatch(s,/<dialog[^>]*\sopen(?:\s|>)/);});
+test('source and metadata files cannot be served',async()=>{for(const path of ['/.env','/.git/config','/AGENTS.md','/scripts/server.mjs','/package.json','/..%2fAGENTS.md']) assert.equal((await fetch(origin+path)).status,404,path);});
+test('disallows submission and external script execution',async()=>{assert.equal((await fetch(origin,{method:'POST'})).status,405);const r=await fetch(origin);assert.match(r.headers.get('content-security-policy'),/script-src 'self'/);assert.match(r.headers.get('content-security-policy'),/connect-src 'none'/);assert.equal(r.headers.get('x-content-type-options'),'nosniff');});
+test('all first-party render assets load',async()=>{for(const file of ['styles.css','app.js','background.js','assets/ribbon.webp','assets/favicon.svg','assets/manrope-bold.ttf','assets/manrope-regular.ttf'])assert.equal((await fetch(origin+'/'+file)).status,200,file);});
