@@ -17,7 +17,7 @@ Audit manuel du code, du produit et de la preview locale de ce dépôt. Version 
 
 Vérifiés dans le navigateur Chromium intégré : boutons, ouverture/fermeture du dialog, focus initial, fermeture Échap et retour au déclencheur, choix d'un chemin, accès aux ressources, commande pause/reprise. Le dialog natif assure la modalité ; focus visible, langue française, titres structurés, décor ignoré des technologies d'assistance.
 
-Desktop final observé à 1199 × 738 : aucun débordement, onglet inférieur visible. Fixture responsive à 390 × 844 : largeur et hauteur exactes, sans débordement. Fixture 320 × 740 : contenu vertical de 844 px, défilement nécessaire et aucun débordement horizontal (largeur utile 305 px avec barre de défilement). Ce défilement préserve les tailles lisibles sur petit écran.
+Desktop final observé à 1199 × 738 : aucun débordement, onglet inférieur visible. Fixture responsive à 390 × 844 : largeur et hauteur exactes, sans débordement. Fixture 320 × 740 : contenu vertical de 830 px, défilement nécessaire et aucun débordement horizontal (largeur utile 305 px avec barre de défilement). Ce défilement préserve les tailles lisibles sur petit écran.
 
 Réduction du mouvement et couleurs forcées prises en charge dans le code. Pas de certification WCAG, audit lecteur d'écran, appareils tactiles réels, Firefox ou Safari. Le thème clair est un choix du brief. Aucun mode sombre promis.
 

@@ -13,3 +13,5 @@ Ne pas ajouter cartes de statistiques, preuves sociales fictives, stickers ou se
 Personnalité premium : élégance, ouverture, calme. Le ruban WebP original est déformé par un shader WebGL avec ondulations sinusoïdales lentes et reflets chauds. Le côté texte reste protégé par un voile clair. Le EA reste stable après son arrivée ; le fond porte le mouvement ambiant. Les interactions utilisent la courbe cubic-bezier(.16,1,.3,1), sans rebond.
 
 Rendu plafonné à 30 images/s et ratio de pixels 1,25. Boucle arrêtée lorsque la page est masquée, le catalogue ouvert, la pause activée ou prefers-reduced-motion demandé. Image de secours si WebGL manque ; image fixe avec réduction du mouvement. Pas de vidéo, bibliothèque d'animation ou téléchargement tiers.
+
+Proportions ajustées après retour : titre desktop réduit d'environ 21 %, objet EA d'environ 16 %, avec réduction équivalente sur mobile. Le ruban et l'espace clair prennent davantage de place.
